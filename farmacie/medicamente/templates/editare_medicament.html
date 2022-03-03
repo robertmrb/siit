@@ -1,0 +1,30 @@
+{% extends 'adauga_medicament.html' %}
+
+{% block title %}Editare medicament{% endblock title %}
+
+{% block nav-content %}
+<i class="fas fa-edit"></i>&nbsp;&nbsp; {{ medicament.numemedicament }}
+{% endblock nav-content %}
+
+<!-- schimbare buton - salveaza -->
+{% block btn-adauga %}
+<i class="fas fa-hdd"></i>&nbsp;&nbsp; Salveaza
+{% endblock btn-adauga %}
+
+{% block btn-reset %}
+<button type="reset" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i>&nbsp;&nbsp; Resetare </button>
+{% endblock btn-reset %}
+
+<!-- block form action -->
+{% block action %} action="{% url 'medicamente:editare_medicament' %}" {% endblock action %}
+
+<!--datele din formularul medicamente pentru editare -->
+{% block Value-numemedicament %} value="{{ medicament.numemedicament }}" {% endblock Value-numemedicament %}
+{% block Value-stoc %} value="{{ medicament.stoc }}" {% endblock Value-stoc %}
+{% block unitate %}<option style="background-color: #d3d3d3; color:#007bff;">{{ medicament.unitate }}</option>  {% endblock unitate %}
+{% block Value-dataexpirarii %}{{ medicament.data_expirarii }}{% endblock Value-dataexpirarii %}
+
+<!-- id(nrgestiune) pentru editare -->
+{% block id-editare %}
+<input type="hidden" value="{{ medicament.id }}" name="id">
+{% endblock id-editare %}

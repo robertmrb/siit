@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Adauga pacient{% endblock title %}
+
+{% block nav-content %}
+<i class="fas fa-user-plus"></i>&nbsp;&nbsp; Adauga Pacient
+{% endblock nav-content %}
+
+{% block btn-nav %}
+<a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav">Logout</a>
+{% endblock btn-nav %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-body border-dark text-primary mt-5">
+                <span class="text-center">{% block card-title %}Completeaza formularul pacient{% endblock card-title %}</span>
+            </div>
+            <form {% block action %} action="add_pacient" {% endblock action %} method="POST" autocomplete="off" enctype="multipart/form-data" class="card p-3 border-dark mt-3">
+                {% csrf_token %}
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Nume</span>
+                    <input type="text" class="form-control" name="nume" placeholder="Nume si Prenume" {% block Value-nume %} {% endblock Value-nume %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Telefon</span>
+                    <input type="text" class="form-control" name="telefon" placeholder="Telefon" {% block Value-telefon %} {% endblock Value-telefon %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Email</span>
+                    <input type="text" class="form-control" name="email" placeholder="Email" {% block Value-email %} {% endblock Value-email %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Varsta</span>
+                    <input type="text" class="form-control" name="varsta" placeholder="Varsta" {% block Value-varsta %} {% endblock Value-varsta %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <label class="input-group-text side-label">Gen</label>
+                    <select class="form-select" name="gen">
+                        {% block gen %}
+                        <option value="" hidden>Selecteaza genul</option>
+                        {% endblock gen %}
+                        <option disabled></option>
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="observatii" rows="7" placeholder="Descriere medicala">{% block observatii %} {% endblock observatii %}</textarea>
+                </div>
+                <div class="d-grid gap-2 mt-2">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        {% block btn-adauga %}
+                        <i class="fas fa-plus"></i>&nbsp;&nbsp; Adauga
+                        {% endblock btn-adauga %}
+                    </button>
+
+                    {% block btn-reset %} {% endblock btn-reset %}
+
+                    <a href="{% url 'pacienti:pacienti' %}" class="btn btn-dark btn-sm"><i class="fas fa-chevron-left"></i>&nbsp;&nbsp; Inapoi</a>
+                </div>
+
+                <!-- id(nrgestiune) pentru editare -->
+                {% block id-editare %}{% endblock id-editare %}
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

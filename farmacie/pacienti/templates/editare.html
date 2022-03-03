@@ -1,0 +1,36 @@
+{% extends 'adauga_pacient.html' %}
+
+{% block title %}Editare pacient{% endblock title %}
+
+{% block nav-content %}
+<i class="fas fa-user-edit"></i>&nbsp;&nbsp; {{ pacient.nume }}
+{% endblock nav-content %}
+
+<!--schimbare nume formular din adauga_pacient.html -->
+{% block card-title %}Pacient inregistrat la: {{ pacient.data_adaugarii | date:'m/d/Y (H:i)' }}{% endblock card-title %}
+
+<!-- schimbare buton - salveaza -->
+{% block btn-adauga %}
+<i class="fas fa-hdd"></i>&nbsp;&nbsp; Salveaza
+{% endblock btn-adauga %}
+
+{% block btn-reset %}
+<button type="reset" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i>&nbsp;&nbsp; Resetare </button>
+{% endblock btn-reset %}
+
+<!-- block form action -->
+{% block action %} action="{% url 'pacienti:editare_pacient' %}" {% endblock action %}
+
+
+<!--datele din formularul pacienti pentru editare -->
+{% block Value-nume %} value="{{ pacient.nume }}" {% endblock Value-nume %}
+{% block Value-telefon %} value="{{ pacient.telefon }}" {% endblock Value-telefon %}
+{% block Value-email %} value="{{ pacient.email }}" {% endblock Value-email %}
+{% block Value-varsta %} value="{{ pacient.varsta }}" {% endblock Value-varsta %}
+{% block gen %}<option style="background-color: #d3d3d3; color:#007bff;">{{ pacient.gen }}</option>  {% endblock gen %}
+{% block observatii %}{{ pacient.observatii }}{% endblock observatii %}
+
+<!-- id(nrgestiune) pentru editare -->
+{% block id-editare %}
+<input type="hidden" value="{{ pacient.nrgestiune }}" name="nrgestiune">
+{% endblock id-editare %}

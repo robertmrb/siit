@@ -33,4 +33,7 @@ urlpatterns = [
 
     # retete
     path('retete/', include('retete.urls')),
+
+    # register
+    path('register/', include('users.urls')),
 ]

@@ -31,20 +31,21 @@
                 </div>
 
                 {% if request.user.is_authenticated %}
+
                     <div class="col-sm">
                     <a href="{% url 'pacienti:pacienti' %}" class="btn btn-outline-info btn-sm border-light" id="btn-meniu">Pacienti</a>
+                    <a href="{% url 'medicamente:medicamente' %}" class="btn btn-outline-info btn-sm border-light" id="btn-meniu">Medicament</a>
                     </div>
-                    <div class="col-sm">
-                    <a href="{% url 'medicamente:medicamente' %}" class="btn btn-outline-info btn-sm border-light" id="btn-meniu">Medicamente</a>
-                    </div>
-                {% endif %}
 
-                <div class="col-sm">
+                {% endif %}
+                    <div class="col-sm">
                     {% block btn-nav %}
                     <a href="{% url 'pacienti:pacienti' %}" class="btn btn-outline-info btn-sm border-light" id="btn-nav">Login</a>
+                    <a href="{% url 'users:register' %}" class="btn btn-outline-info btn-sm border-light" id="btn-nav">Register</a>
                     {% endblock btn-nav%}
+                    </div>
 
-                </div>
+
             </nav>
         </header>
 

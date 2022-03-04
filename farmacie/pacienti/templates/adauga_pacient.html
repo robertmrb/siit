@@ -21,23 +21,23 @@
                 {% csrf_token %}
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text side-label">Nume</span>
-                    <input type="text" class="form-control" name="nume" placeholder="Nume si Prenume" {% block Value-nume %} {% endblock Value-nume %}>
+                    <input type="text" class="form-control" name="nume" id="nume" maxlength="40" placeholder="Nume si Prenume" {% block Value-nume %} {% endblock Value-nume %}>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text side-label">Telefon</span>
-                    <input type="text" class="form-control" name="telefon" placeholder="Telefon" {% block Value-telefon %} {% endblock Value-telefon %}>
+                    <input type="text" class="form-control" name="telefon" id="telefon" placeholder="Telefon" {% block Value-telefon %} {% endblock Value-telefon %}>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text side-label">Email</span>
-                    <input type="text" class="form-control" name="email" placeholder="Email" {% block Value-email %} {% endblock Value-email %}>
+                    <input type="text" class="form-control" name="email" id="email" maxlength="40" placeholder="Email" {% block Value-email %} {% endblock Value-email %}>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text side-label">Varsta</span>
-                    <input type="text" class="form-control" name="varsta" placeholder="Varsta" {% block Value-varsta %} {% endblock Value-varsta %}>
+                    <input type="text" class="form-control" name="varsta" id="varsta" maxlength="3" placeholder="Varsta" {% block Value-varsta %} {% endblock Value-varsta %}>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text side-label">Gen</label>
-                    <select class="form-select" name="gen">
+                    <select class="form-select" name="gen" id="gen">
                         {% block gen %}
                         <option value="" hidden>Selecteaza genul</option>
                         {% endblock gen %}
@@ -50,7 +50,7 @@
                     <textarea class="form-control" name="observatii" rows="7" placeholder="Descriere medicala">{% block observatii %} {% endblock observatii %}</textarea>
                 </div>
                 <div class="d-grid gap-2 mt-2">
-                    <button type="submit" class="btn btn-primary btn-sm">
+                    <button type="submit" class="btn btn-primary btn-sm" id="btn-add">
                         {% block btn-adauga %}
                         <i class="fas fa-plus"></i>&nbsp;&nbsp; Adauga
                         {% endblock btn-adauga %}

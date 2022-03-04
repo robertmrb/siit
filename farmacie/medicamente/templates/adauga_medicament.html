@@ -21,11 +21,11 @@
                 {% csrf_token %}
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text side-label">Medicament</span>
-                    <input type="text" class="form-control" name="numemedicament" placeholder="Medicament" {% block Value-numemedicament %}{% endblock Value-numemedicament %}>
+                    <input type="text" class="form-control" name="numemedicament" id="medicament" placeholder="Medicament" {% block Value-numemedicament %}{% endblock Value-numemedicament %}>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text side-label">Stoc</span>
-                    <input type="text" class="form-control" name="stoc" placeholder="Stoc" {% block Value-stoc %}{% endblock Value-stoc %}>
+                    <input type="text" class="form-control" name="stoc" id="stoc" placeholder="Stoc" {% block Value-stoc %}{% endblock Value-stoc %}>
                 </div>
                 <div class="input-group input-group-sm mb-3">
                     <label class="input-group-text side-label">Unitate</label>

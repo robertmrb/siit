@@ -31,9 +31,6 @@ urlpatterns = [
     #medicamente
     path('medicamente/', include('medicamente.urls')),
 
-    # retete
-    path('retete/', include('retete.urls')),
-
     # register
     path('register/', include('users.urls')),
 ]
